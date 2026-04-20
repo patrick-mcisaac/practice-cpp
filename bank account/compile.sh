@@ -1,0 +1,1 @@
+g++ main.cpp Account.cpp Checking.cpp Savings.cpp -o program
