@@ -1,40 +1,30 @@
+#include <cstring>
+#include <iostream>
 
-double *calculateStats(double arr[], int size)
+void printStringInfo(char str[])
 {
-    double sum = 0;
-    double average = 0;
-    double max = *arr;
-    double min = *arr;
+    // Print the string
+    std::cout << str << std::endl;
 
-    for (int i = 0; i < size; i++)
-    {
-        sum += *(arr + i);
-        if (*(arr + i) > max)
-        {
-            max = *(arr + i);
-        }
-        if (arr[i] < min)
-        {
-            min = arr[i];
-        }
-    }
+    // Print the length of the string
+    std::cout << strlen(str) << std::endl;
 
-    average = sum / size;
+    // Print the character at index 4
+    std::cout << str[4] << std::endl;
 
-    double *newArr = new double[4];
-    newArr[0] = sum;
-    newArr[1] = average;
-    newArr[2] = max;
-    newArr[3] = min;
+    // Modify the first character to 'X'
+    str[0] = 'X';
 
-    return newArr;
+    // Print the modified string
+    std::cout << str << std::endl;
 }
 
 int main()
 {
-    double arr[] = {9, 1, 2, 3, 20};
-    int size = sizeof(arr) / sizeof(arr[0]);
+    char message[] = "Hello, World!";
 
-    calculateStats(arr, size);
+    printStringInfo(message);
+
+    std::cout << message << std::endl;
     return 0;
 }
