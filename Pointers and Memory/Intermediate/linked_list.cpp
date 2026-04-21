@@ -66,7 +66,7 @@ class LinkedList
         if (head == nullptr)
         {
             head = node;
-            return;
+            return 0;
         }
 
         Node *current = head;
@@ -80,7 +80,7 @@ class LinkedList
         current->next = node;
         node->next = next;
         size += 1;
-        return;
+        return 0;
     }
 
     void remove(int val)
@@ -108,6 +108,22 @@ class LinkedList
         }
         return;
     }
+
+    int get(int val)
+    {
+        Node *current = head;
+        int index = 0;
+        while (current)
+        {
+            if (current->val == val)
+            {
+                return index;
+            }
+            index++;
+            current = current->next;
+        }
+        return -1;
+    }
 };
 
 int main()
@@ -118,5 +134,7 @@ int main()
     list.insert(2);
     list.insert(3, 2);
     list.remove(1);
+    list.get(2);
+    list.get(1);
     return 0;
 }
